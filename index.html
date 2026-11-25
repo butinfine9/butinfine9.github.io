@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天天槽槽_高能吐槽视频社区 | 把生活槽点拍成段子</title>
+<meta name="description" content="天天槽槽是一个聚焦生活观察与高能吐槽的视频品牌，用短剧、街采、动画和直播把日常槽点变成好笑又有共鸣的内容，天天槽槽陪你一起吐槽到底。">
+<style>
+:root{
+  --ink:#14161c;
+  --ink-2:#2a2e3a;
+  --muted:#6b7280;
+  --paper:#f6f5f1;
+  --paper-2:#ffffff;
+  --line:#e2dfd7;
+  --brand:#ff4d3d;
+  --brand-2:#ffb020;
+  --brand-3:#22c3a6;
+  --brand-deep:#c72d20;
+  --violet:#6d5efc;
+  --radius:18px;
+  --shadow:0 18px 50px -24px rgba(20,22,28,.35);
+  --shadow-sm:0 8px 24px -14px rgba(20,22,28,.4);
+  --max:1200px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+::selection{background:var(--brand);color:#fff}
+
+/* ---------- 通用布局 ---------- */
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+.section{padding:96px 0;position:relative}
+.section--tight{padding:64px 0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:13px;font-weight:700;letter-spacing:.18em;
+  color:var(--brand-deep);text-transform:uppercase;
+  background:#ffe9e6;border:1px solid #ffd2cc;
+  padding:7px 14px;border-radius:999px;
+}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(255,77,61,.18)}
+h2.title{
+  font-size:clamp(28px,3.6vw,44px);
+  line-height:1.2;letter-spacing:-.02em;
+  margin:18px 0 14px;font-weight:900;
+}
+.lead{color:var(--muted);font-size:17px;max-width:680px}
+.center{text-align:center}
+.center .lead{margin:0 auto}
+.head-split{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:44px}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 26px;border-radius:999px;font-weight:800;font-size:15px;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  white-space:nowrap;
+}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn--primary{background:var(--brand);color:#fff;box-shadow:0 14px 30px -14px rgba(255,77,61,.9)}
+.btn--primary:hover{background:var(--brand-deep);transform:translateY(-2px)}
+.btn--dark{background:var(--ink);color:#fff;box-shadow:var(--shadow-sm)}
+.btn--dark:hover{transform:translateY(-2px);background:var(--ink-2)}
+.btn--ghost{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.btn--ghost:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+
+/* ---------- 顶部导航 ---------- */
+.nav{
+  position:sticky;top:0;z-index:60;
+  backdrop-filter:blur(14px);
+  background:rgba(246,245,241,.82);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s, box-shadow .3s, background .3s;
+}
+.nav.scrolled{border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(0,0,0,.5);background:rgba(246,245,241,.95)}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:74px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:20px;letter-spacing:-.02em}
+.logo__mark{
+  width:38px;height:38px;border-radius:12px;flex:none;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  display:grid;place-items:center;color:#fff;
+  box-shadow:0 10px 22px -12px rgba(255,77,61,.9);
+  position:relative;overflow:hidden;
+}
+.logo__mark svg{width:22px;height:22px}
+.logo__mark::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.6),transparent 55%)}
+.logo small{display:block;font-size:10px;letter-spacing:.22em;color:var(--muted);font-weight:700;margin-top:-3px}
+.nav__links{display:flex;align-items:center;gap:28px}
+.nav__links a{font-size:15px;font-weight:600;color:var(--ink-2);position:relative;padding:6px 0}
+.nav__links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--brand);
+  transition:width .25s ease;border-radius:2px;
+}
+.nav__links a:hover::after{width:100%}
+.nav__cta{display:flex;align-items:center;gap:12px}
+.nav__login{font-weight:700;font-size:15px;color:var(--ink-2);padding:10px 16px;border-radius:999px;transition:background .2s}
+.nav__login:hover{background:#fff}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:#fff;align-items:center;justify-content:center}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--ink)}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:64px 0 80px;
+  background:
+    radial-gradient(900px 460px at 88% -10%, rgba(255,176,32,.28), transparent 60%),
+    radial-gradient(720px 420px at 4% 8%, rgba(109,94,252,.16), transparent 62%),
+    linear-gradient(180deg,#fbfaf7,#f2f0ea);
+}
+.hero__grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+.hero h1{
+  font-size:clamp(46px,7vw,88px);
+  line-height:.98;letter-spacing:-.045em;font-weight:900;
+  margin:22px 0 20px;
+}
+.hero h1 .hl{
+  position:relative;display:inline-block;color:var(--brand);
+}
+.hero h1 .hl::after{
+  content:"";position:absolute;left:-4px;right:-4px;bottom:6px;height:16px;
+  background:rgba(255,176,32,.5);z-index:-1;border-radius:6px;transform:rotate(-1deg);
+}
+.hero__sub{font-size:18px;color:var(--ink-2);max-width:520px;margin-bottom:30px}
+.hero__sub b{color:var(--brand-deep)}
+.hero__actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+.hero__stats{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px}
+.stat{padding-right:34px;margin-right:34px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none;margin-right:0;padding-right:0}
+.stat b{display:block;font-size:28px;font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.stat span{font-size:13px;color:var(--muted);font-weight:600}
+
+/* Hero 视频卡片 */
+.hero__media{position:relative}
+.player{
+  position:relative;border-radius:24px;overflow:hidden;
+  background:#0f1116;box-shadow:var(--shadow);
+  aspect-ratio:4/5;
+  border:6px solid #fff;
+}
+.player svg{width:100%;height:100%;object-fit:cover}
+.player__badge{
+  position:absolute;top:14px;left:14px;z-index:3;
+  background:rgba(12,14,18,.7);color:#fff;font-size:12px;font-weight:700;
+  padding:6px 12px;border-radius:999px;backdrop-filter:blur(6px);
+  display:flex;align-items:center;gap:7px;
+}
+.player__badge i{width:7px;height:7px;border-radius:50%;background:var(--brand);animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.player__ctrl{
+  position:absolute;left:0;right:0;bottom:0;padding:16px;
+  background:linear-gradient(180deg,transparent,rgba(8,10,14,.86));
+  display:flex;align-items:center;gap:12px;z-index:3;
+}
+.play-btn{
+  width:46px;height:46px;border-radius:50%;background:var(--brand);color:#fff;
+  display:grid;place-items:center;flex:none;box-shadow:0 8px 20px -8px rgba(255,77,61,.95);
+  transition:transform .2s;
+}
+.play-btn:hover{transform:scale(1.06)}
+.progress{flex:1;height:5px;border-radius:99px;background:rgba(255,255,255,.28);overflow:hidden}
+.progress i{display:block;height:100%;width:38%;background:var(--brand-2);border-radius:99px;animation:prog 9s linear infinite}
+@keyframes prog{0%{width:6%}100%{width:96%}}
+.player__time{color:#fff;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.float-card{
+  position:absolute;background:#fff;border-radius:16px;box-shadow:var(--shadow);
+  padding:12px 16px;display:flex;align-items:center;gap:11px;
+  font-size:13px;font-weight:800;z-index:4;
+}
+.float-card--1{left:-26px;top:16%;animation:float1 5.5s ease-in-out infinite}
+.float-card--2{right:-22px;bottom:22%;animation:float1 6.5s ease-in-out infinite reverse}
+.float-card em{font-style:normal;color:var(--muted);font-weight:600;display:block;font-size:11px}
+.float-card .dot{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;color:#fff}
+@keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ---------- 跑马灯 ---------- */
+.marquee{
+  background:var(--ink);color:#fff;padding:16px 0;overflow:hidden;
+  border-top:1px solid #22252e;border-bottom:1px solid #22252e;
+}
+.marquee__track{display:flex;gap:44px;white-space:nowrap;animation:scroll 30s linear infinite;width:max-content}
+.marquee__track span{font-size:15px;font-weight:800;letter-spacing:.02em;display:flex;align-items:center;gap:44px;color:#e9e7e1}
+.marquee__track span::after{content:"✳";color:var(--brand-2);font-size:14px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- 栏目卡片 ---------- */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#d3cfc4}
+.card__thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0f1116}
+.card__thumb svg{width:100%;height:100%;transition:transform .5s ease}
+.card:hover .card__thumb svg{transform:scale(1.05)}
+.tag{
+  position:absolute;top:12px;left:12px;font-size:11px;font-weight:800;letter-spacing:.06em;
+  padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);
+}
+.tag--hot{background:var(--brand);color:#fff}
+.card__body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.card__body h3{font-size:19px;font-weight:900;letter-spacing:-.01em;margin-bottom:9px}
+.card__body p{color:var(--muted);font-size:14.5px;flex:1}
+.card__meta{display:flex;align-items:center;gap:14px;margin-top:18px;font-size:12.5px;color:var(--muted);font-weight:600}
+.card__meta b{color:var(--brand-deep)}
+.metrics{display:flex;gap:14px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--muted);font-weight:700}
+.metrics span{display:flex;align-items:center;gap:5px}
+
+/* ---------- 热门榜单 ---------- */
+.rank-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start}
+.rank-list{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.rank-item{display:flex;align-items:center;gap:18px;padding:18px 22px;border-bottom:1px solid var(--line);transition:background .2s}
+.rank-item:last-child{border-bottom:none}
+.rank-item:hover{background:#faf8f4}
+.rank-no{
+  width:34px;height:34px;border-radius:10px;flex:none;display:grid;place-items:center;
+  font-weight:900;font-size:14px;background:#f1efe9;color:var(--ink-2);
+}
+.rank-item:nth-child(1) .rank-no{background:var(--brand);color:#fff}
+.rank-item:nth-child(2) .rank-no{background:var(--brand-2);color:#14161c}
+.rank-item:nth-child(3) .rank-no{background:var(--brand-3);color:#fff}
+.rank-info{flex:1;min-width:0}
+.rank-info b{display:block;font-size:15.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-info span{font-size:12.5px;color:var(--muted);font-weight:600}
+.rank-bar{width:110px;height:6px;border-radius:99px;background:#efece5;overflow:hidden;flex:none}
+.rank-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+
+/* 侧栏 */
+.aside-card{background:var(--ink);color:#fff;border-radius:22px;padding:30px;position:relative;overflow:hidden}
+.aside-card::before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,61,.5),transparent 70%);right:-70px;top:-70px}
+.aside-card h3{font-size:22px;font-weight:900;margin-bottom:12px;position:relative}
+.aside-card p{color:#b9bcc7;font-size:14px;margin-bottom:22px;position:relative}
+.form-row{display:flex;gap:10px;position:relative}
+.form-row input{
+  flex:1;min-width:0;background:#22252e;border:1px solid #33373f;border-radius:999px;
+  padding:13px 18px;color:#fff;font-size:14px;outline:none;font-family:inherit;
+}
+.form-row input::placeholder{color:#7d828e}
+.form-row input:focus{border-color:var(--brand-2)}
+.form-row button{padding:13px 20px;border-radius:999px;background:var(--brand);color:#fff;font-weight:800;font-size:14px;transition:background .2s}
+.form-row button:hover{background:var(--brand-deep)}
+.aside-note{font-size:12px;color:#7d828e;margin-top:14px;position:relative}
+.aside-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#33373f;border-radius:14px;overflow:hidden;margin-top:24px;position:relative}
+.aside-stats div{background:#1b1e26;padding:16px}
+.aside-stats b{display:block;font-size:22px;font-weight:900;color:var(--brand-2)}
+.aside-stats span{font-size:12px;color:#9a9fae}
+
+/* ---------- 创作者 ---------- */
+.creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.creator{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;
+  text-align:center;transition:transform .25s,box-shadow .25s;
+}
+.creator:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.avatar{
+  width:78px;height:78px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;
+  color:#fff;font-weight:900;font-size:24px;position:relative;
+}
+.avatar::after{
+  content:"";position:absolute;inset:-5px;border-radius:50%;border:2px dashed var(--line);
+  animation:spin 22s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.creator h4{font-size:16.5px;font-weight:900;margin-bottom:4px}
+.creator p{font-size:13px;color:var(--muted);margin-bottom:14px}
+.creator .badge{display:inline-block;font-size:11.5px;font-weight:800;padding:4px 12px;border-radius:999px;background:#f3f1eb;color:var(--ink-2)}
+
+/* ---------- 时间轴 ---------- */
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--brand),var(--brand-2),var(--brand-3))}
+.tl-item{position:relative;padding-bottom:34px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:"";position:absolute;left:-33px;top:8px;width:14px;height:14px;border-radius:50%;
+  background:#fff;border:3px solid var(--brand);box-shadow:0 0 0 4px var(--paper);
+}
+.tl-year{font-size:13px;font-weight:900;color:var(--brand-deep);letter-spacing:.08em;margin-bottom:4px}
+.tl-item h4{font-size:18px;font-weight:900;margin-bottom:6px}
+.tl-item p{color:var(--muted);font-size:14.5px}
+
+/* ---------- 数据条 ---------- */
+.stats-band{
+  background:linear-gradient(120deg,#14161c,#232733 60%,#1a1d26);
+  color:#fff;border-radius:28px;padding:52px 44px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
+  position:relative;overflow:hidden;
+}
+.stats-band::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 260px at 90% 0,rgba(255,77,61,.28),transparent 65%)}
+.stats-band div{position:relative}
+.stats-band b{display:block;font-size:clamp(32px,4vw,48px);font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(120deg,#fff,#ffb020);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stats-band span{font-size:14px;color:#b9bcc7;font-weight:600;margin-top:8px;display:block}
+
+/* ---------- 评价 ---------- */
+.quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.quote{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+  display:flex;flex-direction:column;gap:18px;transition:transform .25s,box-shadow .25s;
+}
+.quote:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.quote .mark{font-size:44px;line-height:.6;color:var(--brand);font-family:Georgia,serif;height:26px}
+.quote p{font-size:15px;color:var(--ink-2);flex:1}
+.quote .who{display:flex;align-items:center;gap:12px}
+.quote .who .mini{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:15px;flex:none}
+.quote .who b{display:block;font-size:14px}
+.quote .who span{font-size:12px;color:var(--muted)}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:840px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:22px 4px;font-size:17px;font-weight:800;text-align:left;transition:color .2s;
+}
+.faq-q:hover{color:var(--brand)}
+.faq-q .ico{
+  width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);flex:none;
+  display:grid;place-items:center;font-size:18px;font-weight:700;transition:transform .3s,background .3s,color .3s;
+}
+.faq-item.open .faq-q .ico{transform:rotate(45deg);background:var(--brand);border-color:var(--brand);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{color:var(--muted);font-size:15px;padding:0 4px 24px}
+.faq-item.open .faq-a{max-height:340px}
+
+/* ---------- CTA ---------- */
+.cta{
+  background:linear-gradient(135deg,var(--brand),#ff7a3d 55%,var(--brand-2));
+  border-radius:30px;padding:64px 44px;text-align:center;color:#fff;position:relative;overflow:hidden;
+}
+.cta::before{content:"";position:absolute;width:400px;height:400px;border-radius:50%;border:60px solid rgba(255,255,255,.12);left:-120px;top:-140px}
+.cta::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;border:40px solid rgba(255,255,255,.1);right:-90px;bottom:-120px}
+.cta h2{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-.03em;margin-bottom:14px;position:relative}
+.cta p{opacity:.94;font-size:16.5px;max-width:560px;margin:0 auto 30px;position:relative}
+.cta .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta .btn--light{background:#fff;color:var(--brand-deep)}
+.cta .btn--light:hover{transform:translateY(-2px)}
+.cta .btn--outline{border:1.5px solid rgba(255,255,255,.7);color:#fff}
+.cta .btn--outline:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
+
+/* ---------- 页脚 ---------- */
+.footer{background:var(--ink);color:#fff;padding:70px 0 30px;margin-top:96px}
+.footer__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid #2a2e3a}
+.footer .logo{color:#fff;margin-bottom:16px}
+.footer .logo small{color:#7d828e}
+.footer p.about{color:#9a9fae;font-size:14px;max-width:320px;margin-bottom:22px}
+.socials{display:flex;gap:10px}
+.socials a{
+  width:40px;height:40px;border-radius:12px;background:#22252e;display:grid;place-items:center;
+  transition:background .2s,transform .2s;color:#c9ccd4;
+}
+.socials a:hover{background:var(--brand);color:#fff;transform:translateY(-3px)}
+.footer h5{font-size:14px;font-weight:800;margin-bottom:18px;letter-spacing:.04em}
+.footer li{margin-bottom:11px}
+.footer li a{color:#9a9fae;font-size:14px;transition:color .2s}
+.footer li a:hover{color:var(--brand-2)}
+.footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:26px;flex-wrap:wrap;color:#7d828e;font-size:13px}
+.footer__bottom a{color:#9a9fae}
+.footer__bottom a:hover{color:#fff}
+
+/* 滚动出现 */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:24px;bottom:24px;width:48px;height:48px;border-radius:50%;
+  background:var(--ink);color:#fff;display:grid;place-items:center;z-index:70;
+  opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;box-shadow:var(--shadow);
+}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:hover{transform:translateY(-4px);background:var(--brand)}
+
+/* ---------- 响应式 ---------- */
+@media(max-width:1024px){
+  .hero__grid{grid-template-columns:1fr;gap:48px}
+  .hero__media{max-width:460px;margin:0 auto}
+  .float-card--1{left:0}
+  .float-card--2{right:0}
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .rank-wrap{grid-template-columns:1fr}
+  .creator-grid{grid-template-columns:repeat(2,1fr)}
+  .quote-grid{grid-template-columns:1fr}
+  .stats-band{grid-template-columns:repeat(2,1fr);padding:40px 30px}
+  .footer__grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .section{padding:64px 0}
+  .nav__links{display:none}
+  .nav__cta .btn{display:none}
+  .burger{display:flex}
+  .nav.mobile-open .nav__links{
+    display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+    position:absolute;top:74px;left:0;right:0;background:#fff;padding:18px 24px 26px;
+    border-bottom:1px solid var(--line);box-shadow:var(--shadow);
+  }
+  .nav.mobile-open .nav__links a{padding:12px 0;width:100%;font-size:16px}
+  .hero h1{font-size:52px}
+  .hero__stats{gap:20px}
+  .stat{border:none;padding:0;margin:0;min-width:44%}
+  .grid-3{grid-template-columns:1fr}
+  .creator-grid{grid-template-columns:1fr 1fr}
+  .stats-band{grid-template-columns:1fr 1fr;gap:24px;padding:32px 22px;border-radius:22px}
+  .footer__grid{grid-template-columns:1fr;gap:32px}
+  .cta{padding:44px 24px;border-radius:24px}
+  .float-card{display:none}
+  .footer{margin-top:64px}
+  .section > .wrap{padding:0 18px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ===== 导航 ===== -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="#top" class="logo">
+      <span class="logo__mark">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 6.5h11.5A2.5 2.5 0 0 1 18 9v6.5H6.5A2.5 2.5 0 0 1 4 13V6.5Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M18 10l3-2v8l-3-2" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="9" cy="11" r="1.1" fill="#fff"/>
+          <path d="M7.6 15.4c.6-.9 1.5-1.4 2.6-1.4" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span>天天槽槽<small>TIANTIAN CAOCAO</small></span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#shows">自制栏目</a>
+      <a href="#rank">热榜</a>
+      <a href="#creators">创作者</a>
+      <a href="#story">品牌故事</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <div class="nav__cta">
+      <a href="#join" class="nav__login">登录</a>
+      <a href="#join" class="btn btn--dark">下载 App</a>
+      <button class="burger" id="burger" aria-label="打开菜单" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <span class="eyebrow">生活观察 · 高能吐槽 · 每日更新</span>
+        <h1>天天槽槽</h1>
+        <p class="hero__sub">把日子里那些说不出口的小别扭，拍成你愿意看三遍的段子。<b>天天槽槽</b>不做正能量说教，只做笑着和解的那一口气。</p>
+        <div class="hero__actions">
+          <a href="#shows" class="btn btn--primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            立即观看
+          </a>
+          <a href="#join" class="btn btn--ghost">投稿你的槽点</a>
+        </div>
+        <div class="hero__stats">
+          <div class="stat"><b>1,280<small style="font-size:16px">万</small></b><span>累计播放</span></div>
+          <div class="stat"><b>320<small style="font-size:16px">万</small></b><span>社区用户</span></div>
+          <div class="stat"><b>2,900+</b><span>原创短视频</span></div>
+        </div>
+      </div>
+      <div class="hero__media">
+        <div class="player">
+          <span class="player__badge"><i></i>正在热播</span>
+          <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="天天槽槽主推视频封面插图">
+            <defs>
+              <linearGradient id="bgA" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2b2f3d"/><stop offset="1" stop-color="#10121a"/>
+              </linearGradient>
+              <linearGradient id="sunA" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffb020"/><stop offset="1" stop-color="#ff4d3d"/>
+              </linearGradient>
+              <linearGradient id="glassA" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="rgba(255,255,255,.22)"/><stop offset="1" stop-color="rgba(255,255,255,0)"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="500" fill="url(#bgA)"/>
+            <circle cx="300" cy="120" r="130" fill="url(#sunA)" opacity=".32"/>
+            <circle cx="300" cy="120" r="86" fill="url(#sunA)" opacity=".5"/>
+            <!-- 桌面 -->
+            <rect x="0" y="360" width="400" height="140" fill="#181b23"/>
+            <rect x="0" y="358" width="400" height="3" fill="#3a3f4e"/>
+            <!-- 手机 -->
+            <rect x="128" y="140" width="144" height="250" rx="20" fill="#0b0d12" stroke="#3c4152" stroke-width="3"/>
+            <rect x="140" y="154" width="120" height="200" rx="10" fill="#f6f5f1"/>
+            <rect x="150" y="166" width="70" height="8" rx="4" fill="#ff4d3d"/>
+            <rect x="150" y="182" width="98" height="6" rx="3" fill="#d8d4ca"/>
+            <rect x="150" y="194" width="80" height="6" rx="3" fill="#d8d4ca"/>
+            <rect x="150" y="214" width="100" height="60" rx="8" fill="#ffb020" opacity=".9"/>
+            <rect x="150" y="286" width="100" height="6" rx="3" fill="#d8d4ca"/>
+            <rect x="150" y="300" width="66" height="6" rx="3" fill="#d8d4ca"/>
+            <rect x="162" y="332" width="76" height="10" rx="5" fill="#14161c"/>
+            <!-- 气泡 -->
+            <g opacity=".95">
+              <rect x="46" y="96" width="112" height="56" rx="16" fill="#fff"/>
+              <path d="M92 152l-8 16 24-16z" fill="#fff"/>
+              <rect x="60" y="112" width="66" height="7" rx="3.5" fill="#ff4d3d"/>
+              <rect x="60" y="126" width="84" height="7" rx="3.5" fill="#d8d4ca"/>
+            </g>
+            <g opacity=".95">
+              <rect x="238" y="214" width="120" height="58" rx="16" fill="#22c3a6"/>
+              <path d="M330 272l10 16-26-16z" fill="#22c3a6"/>
+              <rect x="252" y="230" width="70" height="7" rx="3.5" fill="#0d3b33"/>
+              <rect x="252" y="244" width="88" height="7" rx="3.5" fill="rgba(255,255,255,.7)"/>
+            </g>
+            <!-- 光带 -->
+            <rect x="0" y="0" width="400" height="500" fill="url(#glassA)" opacity=".5"/>
+            <g fill="#fff" opacity=".18">
+              <circle cx="60" cy="330" r="4"/><circle cx="340" cy="300" r="3"/>
+              <circle cx="100" cy="420" r="3"/><circle cx="330" cy="420" r="5"/>
+            </g>
+          </svg>
+          <div class="player__ctrl">
+            <button class="play-btn" aria-label="播放">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="progress"><i></i></div>
+            <span class="player__time">01:24</span>
+          </div>
+        </div>
+        <div class="float-card float-card--1">
+          <span class="dot" style="background:var(--brand)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-9.2-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.2 6C19 16.5 12 21 12 21z"/></svg>
+          </span>
+          <div>赞 128.6万<em>今日新增 3.2 万</em></div>
+        </div>
+        <div class="float-card float-card--2">
+          <span class="dot" style="background:var(--brand-3)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h16v12H8l-4 4z"/></svg>
+          </span>
+          <div>弹幕 4,208<em>上线 12 分钟</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 跑马灯 ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>今日槽点：地铁换乘的哲学</span>
+      <span>通勤吐槽大赏</span>
+      <span>外卖备注文学</span>
+      <span>周一早八生存指南</span>
+      <span>小区电梯里的社交</span>
+      <span>加班人的深夜食堂</span>
+      <span>今日槽点：地铁换乘的哲学</span>
+      <span>通勤吐槽大赏</span>
+      <span>外卖备注文学</span>
+      <span>周一早八生存指南</span>
+      <span>小区电梯里的社交</span>
+      <span>加班人的深夜食堂</span>
+    </div>
+  </div>
+
+  <!-- ===== 自制栏目 ===== -->
+  <section class="section" id="shows">
+    <div class="wrap">
+      <div class="head-split">
+        <div>
+          <span class="eyebrow reveal">SELF-PRODUCED SHOWS</span>
+          <h2 class="title reveal">六档自制栏目，承包你的下饭时间</h2>
+          <p class="lead reveal">从三分钟短剧到街头实录，从动画科普到深夜直播，天天槽槽用不同形式接住同一个需求：让普通人的日常被看见、被笑出来。</p>
+        </div>
+        <a href="#rank" class="btn btn--dark reveal">查看全部栏目</a>
+      </div>
+
+      <div class="grid-3">
+        <!-- 卡片 1 -->
+        <article class="card reveal">
+          <div class="card__thumb">
+            <span class="tag tag--hot">每周二更新</span>
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="通勤槽点研究所 插图">
+              <defs><linearGradient id="c1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a3f52"/><stop offset="1" stop-color="#151822"/></linearGradient></defs>
+              <rect width="400" height="250" fill="url(#c1)"/>
+              <circle cx="70" cy="60" r="52" fill="#ff4d3d" opacity=".55"/>
+              <rect x="150" y="90" width="180" height="90" rx="12" fill="#f6f5f1"/>
+              <rect x="164" y="106" width="120" height="10" rx="5" fill="#ff4d3d"/>
+              <rect x="164" y="126" width="150" height="8" rx="4" fill="#d8d4ca"/>
+              <rect x="164" y="142" width="130" height="8" rx="4" fill="#d8d4ca"/>
+              <circle cx="300" cy="70" r="26" fill="#ffb020"/>
+              <path d="M40 190h320" stroke="#3a3f52" stroke-width="4"/>
+              <circle cx="86" cy="160" r="20" fill="#22c3a6"/>
+              <path d="M86 148v12l8 6" stroke="#0d3b33" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="card__body">
+            <h3>通勤槽点研究所</h3>
+            <p>地铁、公交、共享单车，每天两小时的移动现场。用微型观察加轻喜剧演绎，把“挤”和“赶”讲出层次。</p>
+            <div class="metrics">
+              <span>▶ 386 集</span><span>♡ 42.7 万</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 卡片 2 -->
+        <article class="card reveal">
+          <div class="card__thumb">
+            <span class="tag">每周四更新</span>
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="外卖备注文学 插图">
+              <defs><linearGradient id="c2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb020"/><stop offset="1" stop-color="#ff4d3d"/></linearGradient></defs>
+              <rect width="400" height="250" fill="url(#c2)"/>
+              <rect x="100" y="60" width="200" height="140" rx="16" fill="#fff"/>
+              <rect x="122" y="84" width="100" height="10" rx="5" fill="#c72d20"/>
+              <rect x="122" y="104" width="156" height="7" rx="3.5" fill="#e0dcd2"/>
+              <rect x="122" y="120" width="140" height="7" rx="3.5" fill="#e0dcd2"/>
+              <rect x="122" y="136" width="166" height="7" rx="3.5" fill="#e0dcd2"/>
+              <rect x="122" y="158" width="80" height="24" rx="12" fill="#14161c"/>
+              <text x="162" y="175" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="sans-serif">加辣</text>
+              <circle cx="60" cy="200" r="28" fill="rgba(255,255,255,.35)"/>
+              <circle cx="350" cy="52" r="22" fill="rgba(255,255,255,.35)"/>
+            </svg>
+          </div>
+          <div class="card__body">
+            <h3>外卖备注文学</h3>
+            <p>“多放葱，谢谢老板，今天被客户骂了。”一条备注就是一个故事，我们把它读给你听，也读给老板听。</p>
+            <div class="metrics">
+              <span>▶ 214 集</span><span>♡ 31.2 万</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 卡片 3 -->
+        <article class="card reveal">
+          <div class="card__thumb">
+            <span class="tag tag--hot">连载中</span>
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="周一生存指南 插图">
+              <defs><linearGradient id="c3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d5efc"/><stop offset="1" stop-color="#22c3a6"/></linearGradient></defs>
+              <rect width="400" height="250" fill="url(#c3)"/>
+              <rect x="120" y="70" width="160" height="120" rx="18" fill="#fff" opacity=".95"/>
+              <rect x="146" y="96" width="108" height="9" rx="4.5" fill="#6d5efc"/>
+              <rect x="146" y="116" width="80" height="7" rx="3.5" fill="#d8d4ca"/>
+              <rect x="146" y="132" width="96" height="7" rx="3.5" fill="#d8d4ca"/>
+              <circle cx="200" cy="162" r="14" fill="#ffb020"/>
+              <path d="M200 154v8l5 4" stroke="#7a4d00" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <circle cx="76" cy="70" r="18" fill="rgba(255,255,255,.5)"/>
+              <circle cx="330" cy="190" r="26" fill="rgba(255,255,255,.35)"/>
+            </svg>
+          </div>
+          <div class="card__body">
+            <h3>周一生存指南</h3>
+            <p>从睁眼到下班，一天被拆成十二个情绪节点。不是励志，是陪你熬过去的那口气。</p>
+            <div class="metrics">
+              <span>▶ 96 集</span><span>♡ 27.9 万</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 卡片 4 -->
+        <article class="card reveal">
+          <div class="card__thumb">
+            <span class="tag">直播栏目</span>
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="深夜槽话直播间 插图">
+              <defs><linearGradient id="c4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10121a"/><stop offset="1" stop-color="#2b2f3d"/></linearGradient></defs>
+              <rect width="400" height="250" fill="url(#c4)"/>
+              <circle cx="200" cy="120" r="62" fill="#ff4d3d" opacity=".22"/>
+              <rect x="160" y="66" width="80" height="106" rx="12" fill="#f6f5f1"/>
+              <circle cx="200" cy="102" r="22" fill="#ffb020"/>
+              <rect x="176" y="136" width="48" height="8" rx="4" fill="#d8d4ca"/>
+              <path d="M120 210c0-16 36-26 80-26s80 10 80 26" stroke="#3c4152" stroke-width="4" fill="none"/>
+              <circle cx="300" cy="76" r="10" fill="#22c3a6"/>
+              <circle cx="84" cy="150" r="6" fill="#ffb020"/>
+              <circle cx="322" cy="170" r="8" fill="#ff4d3d"/>
+            </svg>
+          </div>
+          <div class="card__body">
+            <h3>深夜槽话直播间</h3>
+            <p>每周五 22:30，主播连线听你讲。没有剧本，只有真实的、带着困意的、有时候很勇敢的倾诉。</p>
+            <div class="metrics">
+              <span>▶ 186 期</span><span>♡ 54.1 万</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 卡片 5 -->
+        <article class="card reveal">
+          <div class="card__thumb">
+            <span class="tag">动画单元</span>
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="三分钟槽画 插图">
+              <defs><linearGradient id="c5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22c3a6"/><stop offset="1" stop-color="#6d5efc"/></linearGradient></defs>
+              <rect width="400" height="250" fill="url(#c5)"/>
+              <circle cx="130" cy="110" r="46" fill="#fff" opacity=".92"/>
+              <circle cx="116" cy="100" r="5" fill="#14161c"/>
+              <circle cx="146" cy="100" r="5" fill="#14161c"/>
+              <path d="M112 126c8 8 28 8 36 0" stroke="#14161c" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <rect x="220" y="80" width="110" height="76" rx="14" fill="#fff" opacity=".92"/>
+              <rect x="238" y="98" width="66" height="8" rx="4" fill="#22c3a6"/>
+              <rect x="238" y="114" width="84" height="7" rx="3.5" fill="#cfcbc1"/>
+              <rect x="238" y="130" width="52" height="7" rx="3.5" fill="#cfcbc1"/>
+              <path d="M30 200c40-30 80-30 120 0" stroke="rgba(255,255,255,.5)" stroke-width="3" fill="none"/>
+            </svg>
+          </div>
+          <div class="card__body">
+            <h3>三分钟槽画</h3>
+            <p>用一笔一画的二维动画，把抽象的职场与社交规则讲清楚。适合通勤路上、也适合开会前偷看。</p>
+            <div class="metrics">
+              <span>▶ 142 集</span><span>♡ 19.8 万</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 卡片 6 -->
+        <article class="card reveal">
+          <div class="card__thumb">
+            <span class="tag tag--hot">街采实录</span>
+            <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="街头开麦 插图">
+              <defs><linearGradient id="c6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7a3d"/><stop offset="1" stop-color="#c72d20"/></linearGradient></defs>
+              <rect width="400" height="250" fill="url(#c6)"/>
+              <rect x="70" y="70" width="120" height="110" rx="14" fill="#fff" opacity=".94"/>
+              <rect x="86" y="88" width="88" height="8" rx="4" fill="#c72d20"/>
+              <rect x="86" y="104" width="70" height="7" rx="3.5" fill="#d8d4ca"/>
+              <rect x="86" y="120" width="88" height="7" rx="3.5" fill="#d8d4ca"/>
+              <rect x="86" y="144" width="54" height="20" rx="10" fill="#14161c"/>
+              <circle cx="270" cy="120" r="46" fill="#fff" opacity=".94"/>
+              <path d="M270 100v22" stroke="#c72d20" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="270" cy="140" r="6" fill="#c72d20"/>
+              <path d="M230 200c30-24 60-24 90 0" stroke="rgba(255,255,255,.55)" stroke-width="3" fill="none"/>
+            </svg>
+          </div>
+          <div class="card__body">
+            <h3>街头开麦</h3>
+            <p>一支麦克风，一条老街。随机拦住路人问一个有点冒犯但不失礼貌的问题，答案通常比段子更狠。</p>
+            <div class="metrics">
+              <span>▶ 168 集</span><span>♡ 36.4 万</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 热榜 ===== -->
+  <section class="section section--tight" id="rank">
+    <div class="wrap">
+      <div class="head-split">
+        <div>
+          <span class="eyebrow reveal">TRENDING NOW</span>
+          <h2 class="title reveal">本周社区热榜，由弹幕投出来</h2>
+          <p class="lead reveal">榜单每周一零点刷新，依据完播率、弹幕密度与收藏数综合计算，不接受任何商业排序。</p>
+        </div>
+      </div>
+      <div class="rank-wrap">
+        <div class="rank-list reveal">
+          <div class="rank-item">
+            <span class="rank-no">1</span>
+            <div class="rank-info"><b>《我妈的质检标准》第 3 集</b><span>通勤槽点研究所 · 本周新增 412 万播放</span></div>
+            <div class="rank-bar"><i style="width:96%"></i></div>
+          </div>
+          <div class="rank-item">
+            <span class="rank-no">2</span>
+            <div class="rank-info"><b>在一线城市点单被叫“靓仔”</b><span>街头开麦 · 本周新增 368 万播放</span></div>
+            <div class="rank-bar"><i style="width:88%"></i></div>
+          </div>
+          <div class="rank-item">
+            <span class="rank-no">3</span>
+            <div class="rank-info"><b>外卖备注：请把葱花单独放</b><span>外卖备注文学 · 本周新增 331 万播放</span></div>
+            <div class="rank-bar"><i style="width:81%"></i></div>
+          </div>
+          <div class="rank-item">
+            <span class="rank-no">4</span>
+            <div class="rank-info"><b>周一早上七点二十的电梯</b><span>周一生存指南 · 本周新增 296 万播放</span></div>
+            <div class="rank-bar"><i style="width:74%"></i></div>
+          </div>
+          <div class="rank-item">
+            <span class="rank-no">5</span>
+            <div class="rank-info"><b>为什么开会必须先讲“我简单说两句”</b><span>三分钟槽画 · 本周新增 254 万播放</span></div>
+            <div class="rank-bar"><i style="width:66%"></i></div>
+          </div>
+          <div class="rank-item">
+            <span class="rank-no">6</span>
+            <div class="rank-info"><b>深夜连麦：我辞职那天下了很大的雨</b><span>深夜槽话 · 本周新增 221 万播放</span></div>
+            <div class="rank-bar"><i style="width:58%"></i></div>
+          </div>
+          <div class="rank-item">
+            <span class="rank-no">7</span>
+            <div class="rank-info"><b>小区楼下那家永远在“马上好”的店</b><span>街头开麦 · 本周新增 198 万播放</span></div>
+            <div class="rank-bar"><i style="width:51%"></i></div>
+          </div>
+        </div>
+
+        <aside class="aside-card reveal">
+          <h3>订阅「今日槽点」</h3>
+          <p>每天 20:00 推送一条三分钟内的精选内容，附一句我们自己的吐槽。不刷屏，只在你需要笑一下的时候出现。</p>
+          <form class="form-row" id="subForm" novalidate>
+            <input type="text" id="subInput" placeholder="留个邮箱或手机号" aria-label="订阅邮箱或手机号">
+            <button type="submit">订阅</button>
+          </form>
+          <p class="aside-note" id="subNote">我们不会把信息交给第三方，可随时退订。</p>
+          <div class="aside-stats">
+            <div><b>20:00</b><span>每日推送时间</span></div>
+            <div><b>3 min</b><span>单条时长上限</span></div>
+            <div><b>92%</b><span>订阅者打开率</span></div>
+            <div><b>0</b><span>商业硬广插播</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 创作者 ===== -->
+  <section class="section" id="creators">
+    <div class="wrap">
+      <div class="head-split">
+        <div>
+          <span class="eyebrow reveal">CREATOR COMMUNITY</span>
+          <h2 class="title reveal">槽点不是一个人攒出来的</h2>
+          <p class="lead reveal">天天槽槽的签约与共创创作者已超过两百位，他们来自各行各业。你看到的每一条内容背后，都有一个真的被生活绊过一下的人。</p>
+        </div>
+        <a href="#join" class="btn btn--ghost reveal">成为创作者</a>
+      </div>
+      <div class="creator-grid">
+        <div class="creator reveal">
+          <div class="avatar" style="background:linear-gradient(135deg,#ff4d3d,#ffb020)">老</div>
+          <h4>老周不加班</h4>
+          <p>职场观察 / 短剧</p>
+          <span class="badge">签约主理人</span>
+        </div>
+        <div class="creator reveal">
+          <div class="avatar" style="background:linear-gradient(135deg,#6d5efc,#22c3a6)">小</div>
+          <h4>小满的备忘录</h4>
+          <p>生活记录 / 动画</p>
+          <span class="badge">共创作者</span>
+        </div>
+        <div class="creator reveal">
+          <div class="avatar" style="background:linear-gradient(135deg,#22c3a6,#0d3b33)">阿</div>
+          <h4>阿桥在街角</h4>
+          <p>街采 / 纪实</p>
+          <span class="badge">签约主持</span>
+        </div>
+        <div class="creator reveal">
+          <div class="avatar" style="background:linear-gradient(135deg,#ffb020,#c72d20)">夜</div>
+          <h4>夜班电台七号</h4>
+          <p>直播 / 连麦</p>
+          <span class="badge">主播</span>
+        </div>
+        <div class="creator reveal">
+          <div class="avatar" style="background:linear-gradient(135deg,#3a3f52,#6d5efc)">木</div>
+          <h4>木木木木林</h4>
+          <p>冷幽默 / 一人分饰</p>
+          <span class="badge">共创作者</span>
+        </div>
+        <div class="creator reveal">
+          <div class="avatar" style="background:linear-gradient(135deg,#ff4d3d,#6d5efc)">口</div>
+          <h4>口是心非研究所</h4>
+          <p>情感观察 / 对谈</p>
+          <span class="badge">签约主理人</span>
+        </div>
+        <div class="creator reveal">
+          <div class="avatar" style="background:linear-gradient(135deg,#22c3a6,#ffb020)">锅</div>
+          <h4>锅贴要焦一点</h4>
+          <p>美食吐槽 / 探店</p>
+          <span class="badge">共创作者</span>
+        </div>
+        <div class="creator reveal">
+          <div class="avatar" style="background:linear-gradient(135deg,#c72d20,#14161c)">西</div>
+          <h4>西二旗夜行者</h4>
+          <p>通勤 / 都市</p>
+          <span class="badge">签约作者</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 品牌故事 ===== -->
+  <section class="section" id="story">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start" class="story-grid">
+        <div>
+          <span class="eyebrow reveal">OUR STORY</span>
+          <h2 class="title reveal">从一个群聊，到一家认真做吐槽的公司</h2>
+          <p class="lead reveal">2019 年，五个人在群里互相抱怨上班路太远。有人提议：不如把这些话录下来。第一期视频只有 47 次播放，但弹幕里出现了第一句“这就是我”。</p>
+          <p class="lead reveal" style="margin-top:16px">六年过去，团队从 5 人变成 68 人，设备从手机换成完整影棚，但判断标准没变：这条内容，能不能让一个刚下班的人在电梯里笑出声。</p>
+        </div>
+        <div class="timeline reveal">
+          <div class="tl-item">
+            <div class="tl-year">2019 · 起点</div>
+            <h4>第一期《通勤槽点》上线</h4>
+            <p>用一部手机在地铁口拍完，剪辑耗时 6 小时。首周播放 47 次，收到 3 条弹幕。</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2020 · 成型</div>
+            <h4>确立“观察 + 轻演绎”的内容方法</h4>
+            <p>放弃追逐热点，转向长期可积累的日常题材，第一档栏目《通勤槽点研究所》固定周更。</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2022 · 增长</div>
+            <h4>全平台粉丝突破百万</h4>
+            <p>《外卖备注文学》系列单条播放破千万，社区开始出现自发二创与投稿。</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2023 · 社区</div>
+            <h4>开放共创投稿通道</h4>
+            <p>任何用户都可以提交自己的槽点素材，经编审团队筛选后进入拍摄池，署名保留。</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2024 · 线下</div>
+            <h4>首届“槽点开放麦”巡演</h4>
+            <p>走过 12 座城市，超过 9000 人到场，把屏幕里的笑声搬到真实的椅子上。</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2025 · 现在</div>
+            <h4>六档栏目稳定周更，App 内测上线</h4>
+            <p>开始构建更完整的社区产品，让每一个槽点都有被听见的位置。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 数据 ===== -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="stats-band reveal">
+        <div><b>1,280万</b><span>全平台累计播放</span></div>
+        <div><b>320万</b><span>注册社区用户</span></div>
+        <div><b>2,900+</b><span>原创视频内容</span></div>
+        <div><b>92.4%</b><span>内容完播率</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 用户评价 ===== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:48px">
+        <span class="eyebrow reveal">FROM THE COMMUNITY</span>
+        <h2 class="title reveal">他们这么说</h2>
+        <p class="lead reveal">以下内容来自社区用户真实留言，已获授权展示。</p>
+      </div>
+      <div class="quote-grid">
+        <div class="quote reveal">
+          <div class="mark">“</div>
+          <p>加班到十一点，回家路上刷了一集《周一生存指南》，在便利店门口笑到被店员看。谢谢你们把这么小的事拍得这么准。</p>
+          <div class="who">
+            <span class="mini" style="background:linear-gradient(135deg,#ff4d3d,#ffb020)">林</span>
+            <div><b>林小满</b><span>社区用户 · 加入 2 年</span></div>
+          </div>
+        </div>
+        <div class="quote reveal">
+          <div class="mark">“</div>
+          <p>我投的素材真的被拍出来了，片尾还打了我的名字。那一刻有点想哭，感觉自己的生活也算被记录了一次。</p>
+          <div class="who">
+            <span class="mini" style="background:linear-gradient(135deg,#6d5efc,#22c3a6)">陈</span>
+            <div><b>陈默</b><span>共创投稿人 · 加入 1 年</span></div>
+          </div>
+        </div>
+        <div class="quote reveal">
+          <div class="mark">“</div>
+          <p>很少见到不卖焦虑、也不硬凹正能量的内容。它只是把你心里那句话说出来了，然后就够了。</p>
+          <div class="who">
+            <span class="mini" style="background:linear-gradient(135deg,#22c3a6,#0d3b33)">周</span>
+            <div><b>周予安</b><span>深度用户 · 加入 3 年</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:40px">
+        <span class="eyebrow reveal">FAQ</span>
+        <h2 class="title reveal">你可能想问</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item open reveal">
+          <button class="faq-q" aria-expanded="true">“天天槽槽”这个名字是什么意思？<span class="ico">+</span></button>
+          <div class="faq-a"><p>它是对一种生活状态的直白描述：每天都有可以吐槽的点，但吐槽不是抱怨，而是把情绪整理好、再笑着往前走的一种方式。我们做内容，就是替你把这句话说出来。</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">内容多久更新一次？<span class="ico">+</span></button>
+          <div class="faq-a"><p>六档栏目均有固定更新节奏：通勤槽点与周一生存指南为周更，外卖备注文学与三分钟槽画隔周更新，街头开麦每月两期，深夜槽话直播间每周五晚开播。App 内会提前推送更新日历。</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">我可以投稿自己的槽点吗？<span class="ico">+</span></button>
+          <div class="faq-a"><p>可以，而且我们非常欢迎。注册后进入“共创投稿”通道，文字、录音、短视频形式都可以。经编审团队评估后进入拍摄池，采用时会保留署名并支付稿酬。</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">内容会涉及隐私或冒犯他人吗？<span class="ico">+</span></button>
+          <div class="faq-a"><p>不会。我们对每一条内容执行三轮审核：事实核对、隐私脱敏与冒犯性检查。涉及真实人物和机构时，会做明显的艺术化处理，并避免指向性表述。</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">如何与天天槽槽进行商业合作？<span class="ico">+</span></button>
+          <div class="faq-a"><p>请通过页面底部的“商务合作”入口联系我们。我们只接与内容气质相符的合作，并会在视频中明确标注“合作内容”，不做隐性植入。</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" aria-expanded="false">可以申请加入创作团队吗？<span class="ico">+</span></button>
+          <div class="faq-a"><p>可以。我们长期招募编剧、剪辑、摄影与出镜创作者。你可以在“成为创作者”页面提交作品集，也可以先在社区发布内容，我们会主动联系表现突出的作者。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section" id="join">
+    <div class="wrap">
+      <div class="cta reveal">
+        <h2>把你的那口气，交给我们</h2>
+        <p>下载天天槽槽 App，订阅每日槽点，或者直接投稿。我们保证：你说出口的那句话，会有人认真听完。</p>
+        <div class="btns">
+          <a href="#top" class="btn btn--light">立即下载 App</a>
+          <a href="#faq" class="btn btn--outline">了解投稿规则</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== 页脚 ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="logo">
+          <span class="logo__mark">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6.5h11.5A2.5 2.5 0 0 1 18 9v6.5H6.5A2.5 2.5 0 0 1 4 13V6.5Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M18 10l3-2v8l-3-2" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+              <circle cx="9" cy="11" r="1.1" fill="#fff"/>
+              <path d="M7.6 15.4c.6-.9 1.5-1.4 2.6-1.4" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span>天天槽槽<small>TIANTIAN CAOCAO</small></span>
+        </div>
+        <p class="about">一家认真做吐槽的视频公司。记录普通人的日常，接住那些没处安放的小情绪。</p>
+        <div class="socials">
+          <a href="#top" aria-label="视频平台">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16v10H8l-4 4z"/></svg>
+          </a>
+          <a href="#top" aria-label="社区">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-9.2-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.2 6C19 16.5 12 21 12 21z"/></svg>
+          </a>
+          <a href="#top" aria-label="邮箱">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5>栏目</h5>
+        <ul>
+          <li><a href="#shows">通勤槽点研究所</a></li>
+          <li><a href="#shows">外卖备注文学</a></li>
+          <li><a href="#shows">周一生存指南</a></li>
+          <li><a href="#shows">深夜槽话直播间</a></li>
+          <li><a href="#shows">三分钟槽画</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>关于</h5>
+        <ul>
+          <li><a href="#story">品牌故事</a></li>
+          <li><a href="#creators">创作者计划</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#join">加入我们</a></li>
+          <li><a href="#join">商务合作</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>联系</h5>
+        <ul>
+          <li><a href="#top">hello@caocao.tv</a></li>
+          <li><a href="#top">媒体采访</a></li>
+          <li><a href="#top">内容授权</a></li>
+          <li><a href="#top">社区公约</a></li>
+          <li><a href="#top">隐私政策</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 天天槽槽（上海）文化传播有限公司 · 沪ICP备 2025XXXXXX号</span>
+      <span><a href="#top">用户协议</a> · <a href="#top">隐私政策</a> · <a href="#top">举报中心</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 导航滚动态 */
+  var nav = document.getElementById('nav');
+  var toTop = document.getElementById('toTop');
+  var onScroll = function(){
+    var y = window.scrollY || window.pageYOffset;
+    if(y > 24){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+    if(y > 600){ toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* 移动端菜单 */
+  var burger = document.getElementById('burger');
+  var navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('mobile-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  Array.prototype.forEach.call(navLinks.querySelectorAll('a'), function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('mobile-open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* 回到顶部 */
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 滚动出现 */
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    Array.prototype.forEach.call(reveals, function(el){ io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(reveals, function(el){ el.classList.add('in'); });
+  }
+
+  /* FAQ 手风琴 */
+  var faqItems = document.querySelectorAll('.faq-item');
+  Array.prototype.forEach.call(faqItems, function(item){
+    var q = item.querySelector('.faq-q');
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      Array.prototype.forEach.call(faqItems, function(other){
+        other.classList.remove('open');
+        other.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        q.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  /* 订阅表单 */
+  var subForm = document.getElementById('subForm');
+  var subInput = document.getElementById('subInput');
+  var subNote = document.getElementById('subNote');
+  if(subForm){
+    subForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = (subInput.value || '').trim();
+      var ok = /^[\w.+-]+@[\w-]+\.[\w.-]+$/.test(val) || /^1[3-9]\d{9}$/.test(val);
+      if(!ok){
+        subNote.textContent = '请填写有效的邮箱或手机号，我们好把第一条推送送到。';
+        subNote.style.color = '#ff8a7a';
+        subInput.style.borderColor = '#ff4d3d';
+        return;
+      }
+      subNote.textContent = '订阅成功，明晚 20:00 见。可随时一键退订。';
+      subNote.style.color = '#8ef0dc';
+      subInput.style.borderColor = '#22c3a6';
+      subInput.value = '';
+    });
+  }
+
+  /* 视频卡片进度条轻微的进度感（演示交互） */
+  var prog = document.querySelector('.progress i');
+  if(prog){
+    var p = 38;
+    setInterval(function(){
+      p = p >= 96 ? 8 : p + 1;
+      prog.style.animation = 'none';
+      prog.style.width = p + '%';
+    }, 2600);
+  }
+
+  /* 侧栏主播问候语随时间变化 */
+  var note = document.getElementById('rankNote');
+  var hour = new Date().getHours();
+  var greet = hour < 6 ? '凌晨还在刷，注意眼睛。' :
+              hour < 12 ? '早上好，今天的槽点从地铁开始。' :
+              hour < 18 ? '下午了，来点轻松的内容吧。' :
+              hour < 23 ? '晚上好，今天过得还顺吗？' :
+                         '夜深了，直播间的灯还亮着。';
+  if(note){ note.textContent = greet; }
+
+  /* 平滑锚点（兼容旧浏览器） */
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    while(t && t !== document){
+      if(t.tagName === 'A'){
+        var href = t.getAttribute('href') || '';
+        if(href.charAt(0) === '#' && href.length > 1){
+          var el = document.querySelector(href);
+          if(el){
+            e.preventDefault();
+            var top = el.getBoundingClientRect().top + window.pageYOffset - 70;
+            window.scrollTo({top: top, behavior:'smooth'});
+          }
+        }
+        break;
+      }
+      t = t.parentNode;
+    }
+  }, false);
+
+})();
+</script>
+</body>
+            </html>
